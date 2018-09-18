@@ -1,0 +1,10 @@
+name: JogLib
+main: jogLib.Main
+author: TheJogMan
+version: 1.0
+load: STARTUP
+api-version: 1.13
+commands:
+  GetHead:
+    description: Get a player head.
+    usage: /GetHead [playerHeadName] <playerName <amount <signature value>>>
