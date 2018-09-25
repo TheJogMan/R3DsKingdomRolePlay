@@ -1,0 +1,53 @@
+each character will have a specific faction that they are apart of
+but also a reputation level with all factions
+the reputation level with a faction will change as the character interacts with the faction
+once the reputation level reaches a certain point, they can join the faction, or get kicked out
+when kicked out of a faction, the character is put into the civilian faction
+the civilian faction cannot be joined directly
+a character can leave a faction at any time, putting them in the civilian faction, and giving them a severe reduction in reputation in the faction they left, as well as a minor reduction in all others (not trustworthy)
+
+factions:
+union
+phoenix
+civilian
+
+civilian faction is neutral
+union and phoenix factions oppose each other
+
+killing members of a faction decreases reputation with faction, and increases reputation with opposing factions
+reputation with civilian faction will decay to neutral over time
+trading with members of a faction increases reputation with faction, and decreases reputation with opposing factions
+
+reputation:
+  0 - total hatred
+ 13 - wanted dead
+ 25 - kicked out
+ 50 - neutral
+ 75 - can join
+100 - total friend
+
+skills:
+looting (percentage of inventory accessible when looting loot chests and bodies)
+charisma (influence on NPCs when in conversation, effects prices when trading)
+thief (percentage of inventory accessible when looting characters and locked chests)
+key smith (effects qualities of crafted locks)
+lock picking (effects chances of unlocking a locked door)
+
+skill range 0-100
+
+looting range: percentage of inventory is skill level
+charisma rage:
+	conversation - to be determined
+	trading - end price = (1 - (charisma / 200)) * initial price
+thief range:
+	looting characters - percentage of inventory is skill level
+	looting locked chest - percentage of inventory is skill level minus lock quality
+key smith range: lock quality is skill level
+lock picking range: chance of unlocking is skill level minus lock quality
+
+random values for skills are generated with fixed seeds, so that a player with lock picking 1 can't successfully unlock a level 100 lock simply by just trying 100 times
+
+when a player dies, they respawn at their spawn point, but 50% of their inventory is left in a body where they died
+a player will always be able to see 100% of the inventory when looting their own body
+special items are ignored when calculating which items are left behind
+bodies decay after 1 hour

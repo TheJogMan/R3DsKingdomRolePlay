@@ -33,13 +33,24 @@ public class Main extends JavaPlugin
 			playerDir.mkdir();
 		}
 		
+		SandboxDirector.init();
+		
 		Bukkit.getPluginManager().registerEvents(new CoreListener(), this);
 		players = new ArrayList<RPlayer>();
 		//load in any players that are already on the server, for if the server had been reloaded
 		for (Iterator<? extends Player> iterator = getServer().getOnlinePlayers().iterator(); iterator.hasNext();)
 		{
-			players.add(new RPlayer(iterator.next()));
+			Player player = iterator.next();
+			RPlayer rPlayer = new RPlayer(player);
+			players.add(rPlayer);
+			rPlayer.softApplyCharacter();
+			player.sendMessage("Reload has finished, gameplay will resume as normal.");
 		}
+	}
+	
+	public static File getPlayersFile()
+	{
+		return new File("plugins/R3DRolePlay/players");
 	}
 	
 	public static RPlayer getPlayer(Player player)

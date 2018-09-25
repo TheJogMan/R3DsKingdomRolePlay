@@ -7,6 +7,35 @@ import java.io.IOException;
 
 public class FileIO
 {
+	public static void ensureDirectories(String[] paths)
+	{
+		for (int index = 0; index < paths.length; index++)
+		{
+			ensureDirectory(paths[index]);
+		}
+	}
+	
+	public static void ensureDirectory(String path)
+	{
+		ensureDirectory(new File(path));
+	}
+	
+	public static void ensureDirectories(File[] files)
+	{
+		for (int index = 0; index < files.length; index++)
+		{
+			ensureDirectory(files[index]);
+		}
+	}
+	
+	public static void ensureDirectory(File file)
+	{
+		if (!(file.exists() && file.isDirectory()))
+		{
+			file.mkdir();
+		}
+	}
+	
 	public static boolean canReadBytes(File file)
 	{
 		if (file.exists() && file.isFile() && file.canRead())
