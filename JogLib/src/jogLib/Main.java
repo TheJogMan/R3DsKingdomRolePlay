@@ -42,9 +42,9 @@ public class Main extends JavaPlugin
 		return plugin;
 	}
 	
-	public ItemNBTAPI getItemNBTAPI()
+	public static ItemNBTAPI getItemNBTAPI()
 	{
-		return itemNBTAPI;
+		return ItemNBTAPI.getInstance();
 	}
 }
 

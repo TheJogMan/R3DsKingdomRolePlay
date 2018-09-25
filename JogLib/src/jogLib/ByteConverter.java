@@ -81,7 +81,7 @@ public class ByteConverter
 		double[] newArray = new double[array.length];
 		for (int index = 0; index < array.length; index++)
 		{
-			newArray[index] = ByteConverter.toDoubleC(array[index]);
+			newArray[index] = ByteConverter.toDouble(array[index]);
 		}
 		return newArray;
 	}
@@ -91,7 +91,7 @@ public class ByteConverter
 		byte[][] newArray = new byte[array.length][];
 		for (int index = 0; index < array.length; index++)
 		{
-			newArray[index] = ByteConverter.fromDoubleC(array[index]);
+			newArray[index] = ByteConverter.fromDouble(array[index]);
 		}
 		return from2DByteArray(newArray);
 	}
@@ -102,7 +102,7 @@ public class ByteConverter
 		float[] newArray = new float[array.length];
 		for (int index = 0; index < array.length; index++)
 		{
-			newArray[index] = ByteConverter.toFloatC(array[index]);
+			newArray[index] = ByteConverter.toFloat(array[index]);
 		}
 		return newArray;
 	}
@@ -112,7 +112,7 @@ public class ByteConverter
 		byte[][] newArray = new byte[array.length][];
 		for (int index = 0; index < array.length; index++)
 		{
-			newArray[index] = ByteConverter.fromFloatC(array[index]);
+			newArray[index] = ByteConverter.fromFloat(array[index]);
 		}
 		return from2DByteArray(newArray);
 	}
@@ -636,11 +636,12 @@ public class ByteConverter
 		return false;
 	}
 	
-	public static byte[] fromFloatC(float value)
+	public static byte[] fromFloat(float value)
 	{
 		return fromInteger(Float.floatToIntBits(value));
 	}
 	
+	/*
 	public static byte[] fromFloat(float value)
 	{
 		byte[] data = new byte[128];
@@ -659,12 +660,14 @@ public class ByteConverter
 		}
 		return data;
 	}
+	*/
 	
-	public static float toFloatC(byte[] data)
+	public static float toFloat(byte[] data)
 	{
 		return Float.intBitsToFloat(toInteger(data));
 	}
 	
+	/*
 	public static float toFloat(byte[] data)
 	{
 		if (data.length == 128)
@@ -686,12 +689,14 @@ public class ByteConverter
 			throw new IllegalStateException("BYTE CONVERTER - toFloat - Invalid byte array size: Expected 128, got " + data.length);
 		}
 	}
+	*/
 	
-	public static byte[] fromDoubleC(double value)
+	public static byte[] fromDouble(double value)
 	{
 		return fromLong(Double.doubleToLongBits(value));
 	}
 	
+	/*
 	public static byte[] fromDouble(double value)
 	{
 		byte[] data = new byte[128];
@@ -710,12 +715,14 @@ public class ByteConverter
 		}
 		return data;
 	}
+	*/
 	
-	public static double toDoubleC(byte[] data)
+	public static double toDouble(byte[] data)
 	{
 		return Double.doubleToLongBits(toLong(data));
 	}
 	
+	/*
 	public static double toDouble(byte[] data)
 	{
 		if (data.length == 128)
@@ -737,4 +744,5 @@ public class ByteConverter
 			throw new IllegalStateException("BYTE CONVERTER - toFloat - Invalid byte array size: Expected 128, got " + data.length);
 		}
 	}
+	*/
 }

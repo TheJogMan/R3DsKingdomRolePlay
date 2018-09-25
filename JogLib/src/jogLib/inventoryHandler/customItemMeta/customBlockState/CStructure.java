@@ -44,7 +44,7 @@ public class CStructure extends CBlockState
 		data[0] = ByteConverter.fromString(author);
 		data[1] = ByteConverter.fromString(name);
 		data[2] = ByteConverter.fromString(metaData);
-		data[3] = ByteConverter.fromFloatC(integrity);
+		data[3] = ByteConverter.fromFloat(integrity);
 		data[4] = ByteConverter.fromLong(seed);
 		data[5] = new byte[] {ByteConverter.fromBoolean(boundingBoxVisible), ByteConverter.fromBoolean(ignoreEntities), ByteConverter.fromBoolean(showAir), mirror, rotation, usage};
 		data[6] = relativePosition.export();
@@ -59,7 +59,7 @@ public class CStructure extends CBlockState
 		author = ByteConverter.toString(array[0]);
 		name = ByteConverter.toString(array[1]);
 		metaData = ByteConverter.toString(array[2]);
-		integrity = ByteConverter.toFloatC(array[3]);
+		integrity = ByteConverter.toFloat(array[3]);
 		seed = ByteConverter.toLong(array[4]);
 		boundingBoxVisible = ByteConverter.toBoolean(array[5][0]);
 		ignoreEntities = ByteConverter.toBoolean(array[5][1]);
